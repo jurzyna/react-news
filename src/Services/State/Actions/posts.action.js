@@ -1,29 +1,31 @@
-
 /**
  * ACTION TYPES
  */
+import {fetchAsync} from "../../helpers";
+import {baseUrl, newsApiOptions} from "../../Config/newsApiConfig";
+
 export const GET_POSTS = 'get posts';
+export const GET_POSTS_ERROR = 'get posts';
 
 /**
  * ACTION CREATORS
  */
-export const getPortfolio = (payload) => ({type: GET_POSTS, payload});
+export const getPosts = (payload) => ({type: GET_POSTS, payload});
+export const getPostsError = (payload) => ({type: GET_POSTS_ERROR, payload});
 
 /**
  * THUNKS
  */
 export function getPostsThunk() {
-    return dispatch => {
-        const items = [];
 
-        /// export const portfolioRef = databaseRef.child("portfolio");
-        // base.ref('/portfolio/entities')
-        //     .once('value', snap => {
-        //         snap.forEach(data => {
-        //             items.push(data.val())
-        //         })
-        //     })
-        //     .then(() => dispatch(getPortfolio(items)))
+    return dispatch => {
+        fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
+            .then(data =>  dispatch(getPosts(data.articles)))
+            .catch(reason => {
+                console.log(reason);
+                dispatch(getPostsError(reason))
+            });
+
     }
 }
 

@@ -1,10 +1,10 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk'
-import React from "react";
+import PostsReducer from './posts.reducer';
 
 const rootReducer = combineReducers({
-    // portfolio: PostsReducer
+    posts: PostsReducer
 });
 
 const composeEnhancers = composeWithDevTools({});
