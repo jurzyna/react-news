@@ -1,11 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
+import Article from "../Components/Article";
 
 class NewsList extends Component {
     render() {
+        const { posts } = this.props;
+
         return (
-            <h2>News List</h2>
+            <Fragment>
+                {posts.loading
+                    ? <h4>Loader</h4>
+                    : posts.loaded && posts.items.length
+                        ? posts.items.map((item, i) =>
+                            <Article key={i} />
+                        )
+                        : <p>There are no Articles</p>
+                }
+                {this.props.posts.loading}
+            </Fragment>
         );
     }
 }
