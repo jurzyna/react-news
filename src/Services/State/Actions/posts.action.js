@@ -22,11 +22,9 @@ export function getPostsThunk() {
 
     return dispatch => {
         dispatch(getPosts());
-
         fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
             .then(data =>  dispatch(getPostsCommit(data.articles)))
             .catch(reason => {
-                console.log(reason);
                 dispatch(getPostsError(reason))
             });
 
