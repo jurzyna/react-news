@@ -1,22 +1,17 @@
 import React from "react";
-import styled from "styled-components";
-import {rem} from "polished";
-
-const HeaderWrap= styled.div`
- 
-`;
-const MenuIcon = styled.div`
- 
-`;
+import {HeaderWrap, Logo, LogoWrap, MenuIcon} from "./Header.styles";
+import LogoFile from '../Assets/Images/logo_large.png';
+import Icon from "../Components/Icon";
 
 class Header extends React.Component{
     render(){
         return(
             <HeaderWrap>
                 <MenuIcon>Icon</MenuIcon>
-
-                <h1>Logo</h1>
-                <h3>SearchIcon</h3>
+                <LogoWrap>
+                    <Logo src={LogoFile}/>
+                </LogoWrap>
+                <Icon icon="search"/>
             </HeaderWrap>
         )
     }

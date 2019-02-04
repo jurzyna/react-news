@@ -2,27 +2,10 @@ import React from 'react';
 import {
     withRouter
 } from 'react-router-dom';
-
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ArticleImage from "./ArticleImage";
 import {H1, H3} from "./Heading";
-import {rem} from 'polished';
-
-const ArticleStyled = styled.div`
-  margin: 0 ${rem(20)};
-  padding: ${rem(20)} 0;
-  color: ${props => props.color || 'red'};
-  border-bottom:  ${rem(1)} solid #ececec;
-  cursor: pointer;
-  transition: background-color .3s;
-  &:hover{
-    background-color: #ddd;
-  }
-`;
-
-const ArticleMeta = styled.div`
-`;
+import {ArticleMeta, ArticleStyled} from "./Article.styles";
 
 
 class Article extends React.Component {

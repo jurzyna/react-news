@@ -21,7 +21,7 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  margin: ${rem(18)} 0 0;
+  margin: 0;
   font-size: ${rem(16)};
   text-transform: uppercase;
   ${headingStyle};
