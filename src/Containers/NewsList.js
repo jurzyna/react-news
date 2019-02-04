@@ -13,7 +13,7 @@ class NewsList extends Component {
                     ? <h4>Loader</h4>
                     : posts.loaded && posts.items.length
                         ? posts.items.map((article, i) =>
-                            <Article key={i} article={article}  size={i === 0 ? 'hero' : 'standard'}/>
+                            <Article key={i} article={article} index={i}  size={i === 0 ? 'hero' : 'standard'}/>
                         )
                         : <p>There are no Articles</p>
                 }

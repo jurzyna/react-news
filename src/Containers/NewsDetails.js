@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
+import {H3} from "../Components/Heading";
+import {connect} from "react-redux";
+import {getPostsThunk} from "../Services/State/Actions/posts.action";
 
 class NewsDetails extends Component {
     render() {
+        // TODO: should be done with a selector
+        const post = this.props.posts.items[0];
         return (
-            <h2>News Details</h2>
+            <H3>{ post
+                    ? post.title
+                    : 'Loading'}
+            </H3>
         );
     }
 }
+const mapStateToProps = state => ({
+    posts: state.posts
+});
 
-export default NewsDetails;
+const mapDispatch = dispatch => {
+    dispatch(getPostsThunk());
+    return {}
+};
+export default connect(mapStateToProps, mapDispatch)(NewsDetails);

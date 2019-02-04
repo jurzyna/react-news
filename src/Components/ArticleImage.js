@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import {rem} from 'polished';
 
 const ArticleImage = styled.div`
   height: ${rem(200)};
