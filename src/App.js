@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import NewsList from "./Containers/NewsList";
 import NewsDetails from "./Containers/NewsDetails";
+import Header from "./Containers/Header";
 import styled from "styled-components";
 import {rem} from "polished";
 
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
+        <Header/>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={NewsList}/>
