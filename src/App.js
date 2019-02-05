@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import NewsList from "./Containers/NewsList";
-import NewsDetails from "./Containers/NewsDetails";
-import Header from "./Containers/Header";
+import React from 'react';
+import { Route, Switch} from 'react-router-dom';
 import styled from "styled-components";
+import posed, {PoseGroup} from 'react-pose';
+import './App.css';
+
+import NewsList from "./Containers/NewsList";
 import {rem} from "polished";
+import NewsDetails from "./Containers/NewsDetails";
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -14,20 +15,27 @@ const AppWrapper = styled.div`
   background-color: #fff;
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <AppWrapper>
-        <Header/>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={NewsList}/>
-            <Route path="/article/:postId" component={NewsDetails}/>
-          </Switch>
-        </BrowserRouter>
-      </AppWrapper>
-    );
-  }
-}
+const RoutesContainer = posed.div({
+    enter: {opacity: 1},
+    exit: {opacity: 0}
+});
+
+const App = (props) => (
+    <Route
+        render={({location}) => (
+            <AppWrapper>
+
+                <PoseGroup>
+                    <RoutesContainer key={location.pathname}>
+                        <Switch location={location}>
+                            <Route exact path="/" component={NewsList} key="home"/>
+                            <Route path="/article/:postId" component={NewsDetails} key="newsDetail"/>
+                        </Switch>
+                    </RoutesContainer>
+                </PoseGroup>
+            </AppWrapper>
+        )}
+    />
+);
 
 export default App;

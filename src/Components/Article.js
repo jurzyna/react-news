@@ -44,6 +44,7 @@ Article.propTypes = {
         url: PropTypes.string,
         urlToImage: PropTypes.string,
         publishedAt: PropTypes.string,
-        content: PropTypes.string
+        content: PropTypes.string,
+        uuid: PropTypes.string
     })
 };
