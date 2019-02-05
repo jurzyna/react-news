@@ -21,28 +21,32 @@ export const getPostsError = (payload) => ({type: GET_POSTS_ERROR, payload});
  */
 export function getPostsThunk() {
 
-    return dispatch => {
-        dispatch(getPosts());
-        fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
-            .then(data =>  {
-                // adding uuid to each item
-                const dataWithUuid = data.articles.map(item => {
-                    item.uuid = uuid();
-                    return item;
-                });
-                dispatch(getPostsCommit(dataWithUuid));
-                // save in local storage for offline use
-                localStorage.setItem('posts', JSON.stringify(data.articles))
-            })
-            .catch(reason => {
-                dispatch(getPostsError(reason));
-                const dataCopy =  localStorage.getItem('posts');
-                // read from storage when app is offline or error occurs
-                if (dataCopy){
-                    dispatch(getPostsCommit(JSON.parse(dataCopy)));
-                }
+    return (dispatch, getState) => {
+        const state = getState();
+        console.log(state);
+        if (!state.posts.loaded) {
+            dispatch(getPosts());
+            fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
+                .then(data => {
+                    // adding uuid to each item
+                    const dataWithUuid = data.articles.map(item => {
+                        item.uuid = uuid();
+                        return item;
+                    });
+                    dispatch(getPostsCommit(dataWithUuid));
+                    // save in local storage for offline use
+                    localStorage.setItem('posts', JSON.stringify(data.articles))
+                })
+                .catch(reason => {
+                    dispatch(getPostsError(reason));
+                    const dataCopy = localStorage.getItem('posts');
+                    // read from storage when app is offline or error occurs
+                    if (dataCopy) {
+                        dispatch(getPostsCommit(JSON.parse(dataCopy)));
+                    }
 
-            });
+                });
+        }
 
     }
 }
