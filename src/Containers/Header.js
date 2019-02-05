@@ -5,20 +5,21 @@ import Icon from "../Components/Icon";
 import posed from 'react-pose';
 
 const Box = posed.div({
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 }
+    hidden: {opacity: 0},
+    visible: {opacity: 1}
 });
 
-class Header extends React.Component{
-    state = { isOpen: false };
+class Header extends React.Component {
+    state = {isOpen: false};
 
 
     toggleMenu = () => {
         // this.setState({ isOpen: !this.state.isOpen });
     };
-    render(){
-        const { isOpen } = this.state;
-        return(
+
+    render() {
+        const {isOpen} = this.state;
+        return (
             <HeaderWrap>
                 <MenuIcon onClick={this.toggleMenu()} pose={isOpen ? 'open' : 'close'}>Icon</MenuIcon>
                 <LogoWrap>
