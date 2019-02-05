@@ -3,7 +3,7 @@
  */
 import {fetchAsync} from "../../helpers";
 import {baseUrl, newsApiOptions} from "../../Config/newsApiConfig";
-import {posts} from "../../../JSON/posts";
+import uuid from "uuid/v4";
 
 export const GET_POSTS = 'get posts';
 export const GET_POSTS_ERROR = 'get posts';
@@ -12,7 +12,7 @@ export const GET_POSTS_COMMIT = 'get posts commit';
 /**
  * ACTION CREATORS
  */
-export const getPosts = (payload) => ({type: GET_POSTS});
+export const getPosts = () => ({type: GET_POSTS});
 export const getPostsCommit = (payload) => ({type: GET_POSTS_COMMIT, payload});
 export const getPostsError = (payload) => ({type: GET_POSTS_ERROR, payload});
 
@@ -25,7 +25,12 @@ export function getPostsThunk() {
         dispatch(getPosts());
         fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
             .then(data =>  {
-                dispatch(getPostsCommit(data.articles));
+                // adding uuid to each item
+                const dataWithUuid = data.articles.map(item => {
+                    item.uuid = uuid();
+                    return item;
+                });
+                dispatch(getPostsCommit(dataWithUuid));
                 // save in local storage for offline use
                 localStorage.setItem('posts', JSON.stringify(data.articles))
             })
