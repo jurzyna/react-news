@@ -6,16 +6,15 @@ import Article from "../Components/Article";
 class NewsList extends Component {
     render() {
         const { posts } = this.props;
-
         return (
             <Fragment>
-                {posts.loading
-                    ? <h4>Loader</h4>
-                    : posts.loaded && posts.items.length
+                {posts.loaded
+                    ? posts.loaded && posts.items.length
                         ? posts.items.map((article, i) =>
                             <Article key={article.uuid} article={article} index={i}  size={i === 0 ? 'hero' : 'standard'}/>
                         )
                         : <p>There are no Articles</p>
+                    : <h4>Loader</h4>
                 }
                 {this.props.posts.loading}
             </Fragment>

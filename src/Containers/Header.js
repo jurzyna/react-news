@@ -1,5 +1,5 @@
 import React from "react";
-import {HeaderWrap, Logo, LogoWrap, MenuIcon} from "./Header.styles";
+import {HeaderWrap, Logo, LogoWrap, MenuIcon} from "./Header.styled";
 import LogoFile from '../Assets/Images/logo_large.png';
 import Icon from "../Components/Icon";
 import posed from 'react-pose';

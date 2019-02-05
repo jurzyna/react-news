@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {H3} from "../Components/Heading";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
@@ -12,14 +12,15 @@ class NewsDetails extends Component {
         const post = this.props.posts.items[postId];
         return (
             <NewsDetailsWrap>
-                <H3>{ post
-                        ? post.title
-                        : 'Loading'}
+                <H3>{post
+                    ? post.title
+                    : 'Loading'}
                 </H3>
             </NewsDetailsWrap>
         );
     }
 }
+
 const mapStateToProps = state => ({
     posts: state.posts
 });

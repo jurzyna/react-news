@@ -7,6 +7,7 @@ import './App.css';
 import NewsList from "./Containers/NewsList";
 import {rem} from "polished";
 import NewsDetails from "./Containers/NewsDetails";
+import Header from "./Containers/Header";
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -16,15 +17,15 @@ const AppWrapper = styled.div`
 `;
 
 const RoutesContainer = posed.div({
-    enter: {opacity: 1},
-    exit: {opacity: 0}
+    enter: {opacity: 1, scale: 1, delay: 100},
+    exit: {opacity: 0, scale: 0.99}
 });
 
-const App = (props) => (
+const App = () => (
     <Route
         render={({location}) => (
             <AppWrapper>
-
+                <Header/>
                 <PoseGroup>
                     <RoutesContainer key={location.pathname}>
                         <Switch location={location}>
