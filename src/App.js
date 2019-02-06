@@ -4,7 +4,7 @@ import {PoseGroup} from 'react-pose';
 import './App.css';
 import NewsList from "./Containers/NewsList";
 import NewsDetails from "./Containers/NewsDetails";
-import Header from "./Containers/Header";
+import Header from "./Components/Header";
 import {AppWrapper, RoutesContainer} from "./App.styled";
 
 const App = () => (
