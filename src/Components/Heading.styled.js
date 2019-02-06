@@ -17,13 +17,8 @@ export const H1 = styled.h1`
 `;
 
 export const H2 = styled.h2`
-  font-size: ${rem(16)};
-  ${headingStyle};
-`;
-
-export const H3 = styled.h3`
   margin: 0;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: var(--font-serif);
   font-size: ${rem(13)};
   text-transform: uppercase;
   ${headingStyle};

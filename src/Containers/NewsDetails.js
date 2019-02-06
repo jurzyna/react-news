@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {H3} from "../Components/Heading.styled";
+import {H2} from "../Components/Heading.styled";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
@@ -12,10 +12,10 @@ class NewsDetails extends Component {
         const post = this.props.posts.items[postId];
         return (
             <NewsDetailsWrap>
-                <H3>{post
+                <H2>{post
                     ? post.title
                     : 'Loading'}
-                </H3>
+                </H2>
             </NewsDetailsWrap>
         );
     }

@@ -4,9 +4,8 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ArticleImageStyled from "./ArticleImage.styled";
-import {H1, H3} from "./Heading.styled";
+import {H1, H2} from "./Heading.styled";
 import {ArticleMeta, ArticleStyled} from "./Article.styled";
-
 
 class Article extends React.Component {
 
@@ -20,7 +19,7 @@ class Article extends React.Component {
             <ArticleStyled onClick={this.openDetails}>
                 <ArticleImageStyled urlToImage={urlToImage}/>
                 <ArticleMeta>
-                    <H3>{source.name}</H3>
+                    <H2>{source.name}</H2>
                     <H1>{title}</H1>
                 </ArticleMeta>
             </ArticleStyled>

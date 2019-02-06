@@ -15,14 +15,14 @@ export const RoutesContainer = posed.div({
         opacity: 1,
         transition: {
             y: { type: 'spring', delay: 100, duration: 100 },
-            default: { duration: 100 }
+            default: { duration: 200 }
         }
     },
     exit: {
         y: 10,
         opacity: 0,
         transition: {
-            duration: 100
+            duration: 200
         }
     }
 });

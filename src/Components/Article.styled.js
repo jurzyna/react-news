@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {rem} from "polished";
 
 export const ArticleStyled = styled.div`
-  color: ${props => props.color || 'red'};
-  border-bottom:  ${rem(1)} solid #ececec;
+  color: var(--gray-ligh);
+  border-bottom:  ${rem(1)} solid var(--gray-light);
   cursor: pointer;
   margin: 0 ${rem(20)} ${rem(20)} ${rem(20)};
 `;
@@ -13,6 +13,6 @@ export const ArticleMeta = styled.div`
   margin: 0 ${rem(-20)};
   transition: background-color .3s;
   &:hover{
-      background-color: #ddd;
+      background-color: var(--gray-light);
   }
 `;
