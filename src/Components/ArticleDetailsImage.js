@@ -22,7 +22,7 @@ class ArticleDetailsImage extends React.Component {
     toggleZoom = () => (this.state.isZoomed ? this.zoomOut() : this.zoomIn());
 
     componentDidMount() {
-        const height = this.divElement.clientHeight;
+        const height = this.imageElem.clientHeight;
         this.setState({imageContainerHeight: height});
     }
 
@@ -35,8 +35,8 @@ class ArticleDetailsImage extends React.Component {
             <ArticleDetailsImageWrap
                 height={imageContainerHeight}
                 onClick={this.toggleZoom}>
-                <Frame pose={pose} className="frame"/>
-                <Image pose={pose} src={urlToImage} ref={(divElement) => this.divElement = divElement}/>
+                <Frame pose={pose}/>
+                <Image pose={pose} src={urlToImage} ref={(imageElem) => this.imageElem = imageElem}/>
             </ArticleDetailsImageWrap>
         );
     }
