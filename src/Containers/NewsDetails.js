@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {H2} from "../Components/Heading.styled";
+import React, {Component, Fragment} from 'react';
+import {H1,H2} from "../Components/Heading.styled";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
@@ -9,9 +9,13 @@ import ArticleDetailsImage from "../Components/ArticleDetailsImage";
 class NewsDetails extends Component {
     renderDetails(post) {
         return (
-            <NewsDetailsWrap>
+            <Fragment>
                 <ArticleDetailsImage urlToImage={post.urlToImage}/>
-            </NewsDetailsWrap>
+                <NewsDetailsWrap>
+                    <H1>{post.title}</H1>
+                    <p>{post.content}</p>
+                </NewsDetailsWrap>
+            </Fragment>
         )
     }
 
