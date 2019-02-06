@@ -11,9 +11,6 @@ export const HeaderWrap = styled.div`
   padding: 0 ${rem(20)};
   background-color: #fff;
 `;
-export const MenuIcon = styled.div`
-  flex: 0 0 ${rem(40)};
-`;
 
 export const LogoWrap = styled.div`
   display: flex;
@@ -42,8 +39,10 @@ const HamburgerMenuPoseProps = {
 };
 export const HamburgerMenu = styled(posed.div(HamburgerMenuPoseProps))`
   position: relative;
-  height: 100%};
-  width: ${rem(22)};
+  height: 100%;
+  width: 22px;
+  cursor: pointer;
+  
 `;
 const HamburgerMenuItemDefaults = css`
   position: absolute;
