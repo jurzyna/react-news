@@ -45,5 +45,5 @@ Article.propTypes = {
         publishedAt: PropTypes.string,
         content: PropTypes.string,
         uuid: PropTypes.string
-    })
+    }).isRequired
 };

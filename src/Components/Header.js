@@ -40,7 +40,7 @@ class Header extends React.Component {
 
 export default Header;
 
-// TODO add prop types for history and match
+
 Header.propTypes = {
     history: ReactRouterPropTypes.history.isRequired,
     match: ReactRouterPropTypes.match.isRequired,

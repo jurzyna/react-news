@@ -3,10 +3,12 @@ import {rem} from "polished";
 import posed from "react-pose";
 
 export const AppWrapper = styled.div`
+position: relative;
   margin: 0 auto;
   max-width: ${rem(500)};
   min-height: 100vh;
   background-color: #fff;
+  overflow: hidden;
 `;
 
 export const RoutesContainer = posed.div({

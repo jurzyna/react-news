@@ -4,19 +4,25 @@ import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
 import {NewsDetailsWrap} from "./NewsDetails.styles";
+import ArticleDetailsImage from "../Components/ArticleDetailsImage";
 
 class NewsDetails extends Component {
+    renderDetails(post) {
+        return (
+            <NewsDetailsWrap>
+                <ArticleDetailsImage urlToImage={post.urlToImage}/>
+            </NewsDetailsWrap>
+        )
+    }
+
     render() {
         // TODO: should be done with a selector
         const postId = this.props.match.params.postId;
         const post = this.props.posts.items[postId];
         return (
-            <NewsDetailsWrap>
-                <H2>{post
-                    ? post.title
-                    : 'Loading'}
-                </H2>
-            </NewsDetailsWrap>
+            post
+                ? this.renderDetails(post)
+                : <p>Loading</p>
         );
     }
 }
