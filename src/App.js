@@ -17,8 +17,21 @@ const AppWrapper = styled.div`
 `;
 
 const RoutesContainer = posed.div({
-    enter: {opacity: 1, scale: 1, delay: 100},
-    exit: {opacity: 0, scale: 0.99}
+    enter: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            y: { type: 'spring', delay: 100, duration: 100 },
+            default: { duration: 100 }
+        }
+    },
+    exit: {
+        y: 10,
+        opacity: 0,
+        transition: {
+            duration: 100
+        }
+    }
 });
 
 const App = () => (
