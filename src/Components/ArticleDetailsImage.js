@@ -8,7 +8,6 @@ class ArticleDetailsImage extends React.Component {
         imageContainerHeight: 0
     };
 
-
     zoomIn() {
         window.addEventListener('scroll', this.zoomOut);
         this.setState({isZoomed: true});

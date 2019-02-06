@@ -1,21 +1,30 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {H1} from "../Components/Heading.styled";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
 import {NewsDetailsWrap} from "./NewsDetails.styles";
 import ArticleDetailsImage from "../Components/ArticleDetailsImage";
+import posed from "react-pose";
+
+
+const Container = posed.div({
+    enter: { y: 0, transition: {
+            duration: 400
+        } },
+    exit: { y: 20 }
+});
 
 class NewsDetails extends Component {
     renderDetails(post) {
         return (
-            <Fragment>
+            <Container>
                 <ArticleDetailsImage urlToImage={post.urlToImage}/>
                 <NewsDetailsWrap>
                     <H1>{post.title}</H1>
                     <p>{post.content}</p>
                 </NewsDetailsWrap>
-            </Fragment>
+            </Container>
         )
     }
 

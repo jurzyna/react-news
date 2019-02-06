@@ -13,16 +13,12 @@ export const AppWrapper = styled.div`
 
 export const RoutesContainer = posed.div({
     enter: {
-        // y: 0,
         opacity: 1,
         transition: {
-            // y: { type: 'spring', delay: 100, duration: 100 },
-            duration: 800
+            duration: 400
         }
     },
     exit: {
-        // y: 10,
         opacity: 0,
-
     }
 });
