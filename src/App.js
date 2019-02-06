@@ -9,9 +9,9 @@ import {AppWrapper, RoutesContainer} from "./App.styled";
 
 const App = () => (
     <Route
-        render={({location}) => (
+        render={({location, history, match}) => (
             <AppWrapper>
-                <Header/>
+                <Header match={match} history={history}/>
                 <PoseGroup>
                     <RoutesContainer key={location.pathname}>
                         <Switch location={location}>

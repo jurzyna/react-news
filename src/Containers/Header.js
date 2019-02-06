@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {
     HamburgerMenu,
     HamburgerMenuBottom,
@@ -12,22 +13,20 @@ import LogoFile from '../Assets/Images/logo_large.png';
 import Icon from "../Components/Icon";
 
 class Header extends React.Component {
-    state = {isOpen: false};
 
     toggleMenu = () => {
-        this.setState(state => ({
-            isOpen: !state.isOpen
-        }));
+        if (!this.props.match.isExact) {
+            this.props.history.push('/');
+        }
     };
 
     render() {
-        const {isOpen} = this.state;
         return (
             <HeaderWrap>
-                <HamburgerMenu pose={isOpen ? 'open' : 'closed'} onClick={this.toggleMenu}>
-                    <HamburgerMenuTop />
-                    <HamburgerMenuMiddle />
-                    <HamburgerMenuBottom />
+                <HamburgerMenu pose={this.props.match.isExact ? 'closed' : 'open'} onClick={this.toggleMenu}>
+                    <HamburgerMenuTop/>
+                    <HamburgerMenuMiddle/>
+                    <HamburgerMenuBottom/>
                 </HamburgerMenu>
                 <LogoWrap>
                     <Logo src={LogoFile}/>
@@ -39,3 +38,9 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+// TODO add prop types for history and match
+Header.propTypes = {
+    history: PropTypes.object,
+    match: PropTypes.object
+};
