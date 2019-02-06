@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin|Merriweather:400,400i,900i');
+*, ::after, ::before {
+    box-sizing: border-box;
+}
 
 body {
     /* Declaring Global Variables */

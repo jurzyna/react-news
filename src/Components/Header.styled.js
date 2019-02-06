@@ -6,7 +6,10 @@ export const HeaderWrap = styled.div`
   position: sticky;
   top: 0;
   display: flex;
+  z-index: 2;
   align-items: center;
+  margin: 0 auto;
+  max-width: ${rem(500)};
   height: ${rem(55)};
   padding: 0 ${rem(20)};
   background-color: var(--white);
@@ -15,11 +18,9 @@ export const HeaderWrap = styled.div`
 export const LogoWrap = styled.div`
   display: flex;
   flex: 1 1 auto;
-  padding-top: ${rem(8)};
   padding-left: ${rem(20)};
 `;
 export const Logo = styled.img`
-    src: url(${props => props.src});
     height: ${rem(30)};
     width: auto;
 `;
@@ -39,6 +40,7 @@ const HamburgerMenuPoseProps = {
 };
 export const HamburgerMenu = styled(posed.div(HamburgerMenuPoseProps))`
   position: relative;
+  margin-bottom: ${rem(6)};
   height: 100%;
   width: 22px;
   cursor: pointer;
