@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {H3} from "../Components/Heading";
+import {H3} from "../Components/Heading.styled";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
