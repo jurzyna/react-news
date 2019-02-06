@@ -1,10 +1,10 @@
-/**
- * ACTION TYPES
- */
 import {fetchAsync} from "../../helpers";
 import {baseUrl, newsApiOptions} from "../../Config/newsApiConfig";
 import uuid from "uuid/v4";
 
+/**
+ * ACTION TYPES
+ */
 export const GET_POSTS = 'get posts';
 export const GET_POSTS_ERROR = 'get posts';
 export const GET_POSTS_COMMIT = 'get posts commit';
@@ -19,12 +19,12 @@ export const getPostsError = (payload) => ({type: GET_POSTS_ERROR, payload});
 /**
  * THUNKS
  */
-export function getPostsThunk() {
+export function getPostsThunk(reload = false) {
 
     return (dispatch, getState) => {
         const state = getState();
-        console.log(state);
-        if (!state.posts.loaded) {
+
+        if (!state.posts.loaded || reload) {
             dispatch(getPosts());
             fetchAsync(baseUrl, 'top-headlines', newsApiOptions)
                 .then(data => {
