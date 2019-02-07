@@ -14,9 +14,7 @@ export const AppWrapper = styled.div`
 export const RoutesContainer = posed.div({
     enter: {
         opacity: 1,
-        transition: {
-            duration: 400
-        }
+        beforeChildren: true,
     },
     exit: {
         opacity: 0,
