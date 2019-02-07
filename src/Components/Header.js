@@ -9,7 +9,7 @@ import {
     HeaderWrap,
     Logo,
     LogoWrap
-} from "./Header.styled";
+} from "./StyledComponents/Header.styled";
 import LogoFile from '../Assets/Images/logo_large.png';
 import Icon from "./Icon";
 

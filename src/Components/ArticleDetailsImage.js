@@ -1,5 +1,5 @@
 import React from 'react';
-import {ArticleDetailsImageWrap, Frame, Image} from "./ArticleDetailsImage.styled";
+import {ArticleDetailsImageWrap, Frame, Image} from "./StyledComponents/ArticleDetailsImage.styled";
 import PropTypes from "prop-types";
 
 class ArticleDetailsImage extends React.Component {

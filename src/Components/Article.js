@@ -3,9 +3,9 @@ import {
     withRouter
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ArticleImageStyled from "./ArticleImage.styled";
-import {H1, H2} from "./Heading.styled";
-import {ArticleMeta, ArticleStyled} from "./Article.styled";
+import ArticleImageStyled from "./StyledComponents/ArticleImage.styled";
+import {H1, H2} from "./StyledComponents/Heading.styled";
+import {ArticleMeta, ArticleStyled} from "./StyledComponents/Article.styled";
 
 class Article extends React.Component {
 

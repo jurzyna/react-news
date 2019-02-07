@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {H1} from "../Components/Heading.styled";
+import {H1} from "../Components/StyledComponents/Heading.styled";
 import {connect} from "react-redux";
 import {getPostsThunk} from "../Services/State/Actions/posts.action";
 import {withRouter} from "react-router-dom";
-import {NewsDetailsContainer, NewsDetailsWrap} from "./NewsDetails.styles";
+import {NewsDetailsContainer, NewsDetailsWrap} from "./StyledContainers/NewsDetails.styles";
 import ArticleDetailsImage from "../Components/ArticleDetailsImage";
 
 class NewsDetails extends Component {
